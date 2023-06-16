@@ -18,6 +18,11 @@ code {
     monospace;
 }
 
+.navbar-toggler, .navbar-toggler:focus-within {
+  border: none!important;
+  box-shadow: none!important;
+}
+
 .h-100 {
   height: 100vh;
 }
@@ -217,9 +222,13 @@ blockquote::after {
   font-weight: bolder !important;
 }
 
+.text-agri {
+  color: #00d250!important;
+}
+
 .btn-primary {
-  background-color: #00d250;
-  border-color: #00d250;
+  background-color: #00d250!important;
+  border-color: #00d250!important;
 }
 
 .btn-primary:hover, .btn-primary:focus-within {

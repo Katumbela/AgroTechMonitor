@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '../components/cabeca.css'
 import logo from '../img/logo2.png';
 import katumbela from '../img/im1.jpeg';
@@ -30,6 +30,39 @@ import { useEffect } from 'react';
 
 function Home() {
 
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (count < 92) {
+        setCount(count + 3);
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [count, 92]);
+
+  const [count2, setCount2] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (count2 < 36) {
+        setCount2(count2 + 2);
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [count2, 36]);
+
+
   const revealRef = useRef(null);
 
   useEffect(() => {
@@ -41,7 +74,7 @@ function Home() {
 
   document.title = 'Pagina Inicial | AgroTechMonitor'
   return (
-    <div classNameName="">
+    <div className="">
       <Header />
 
       {/* <!-- Hero Section --> */}
@@ -61,21 +94,21 @@ function Home() {
 
 <div className="py-4">
   <div className="row text-center">
-    <div className="col-12 col-sm-4 col-lg-3">
+    <div className="col-6 col-sm-4 col-lg-3">
       <img src={ic12} alt="" style={{height:'5em'}} /> <br />
 
       <span className="text-secondary">Recomendações</span>
     </div>
-    <div className="col-12 col-sm-4 col-lg-3">
+    <div className="col-6 col-sm-4 col-lg-3">
       <img src={ic13} alt="" style={{height:'5em'}} /> <br />
       <span className="text-secondary">Materiais Agrícolas</span>
     </div>
-    <div className="col-12 col-sm-4 col-lg-3">
+    <div className="col-6 col-sm-4 col-lg-3">
       <img src={ic14} alt="" style={{height:'5em'}} /> <br />
 
       <span className="text-secondary">Produtos Agrícolas</span>
     </div>
-    <div className="col-12 col-sm-4 col-lg-3">
+    <div className="col-6 col-sm-4 col-lg-3">
       <img src={ic15} alt="" style={{height:'5em'}} /> <br />
       
       <span className="text-secondary">Comunidade</span>
@@ -84,6 +117,20 @@ function Home() {
 </div>
 <div className="container text-center">
   <hr />
+  <div className="py-3 text-center ">
+      <div className="row">
+        <div className="col-12 col-sm-6">
+          <i className="bi bi-people text-agri h1 "></i>
+            <h1 className='text-agri'>{count}</h1>
+          <span className='text-agri'>Agricultores</span>
+        </div>
+        <div className="col-12 col-sm-6">
+          <i className="bi bi-list-check text-agri h1 "></i>
+            <h1 className='text-agri'>{count2}</h1>
+          <span className='text-agri'>Consultas feitas</span>
+        </div>
+      </div>
+  </div>
 
   <br />
   <div className="bg-agri mx-auto rounded-circle" style={{height:'10em', width:'10em'}}></div>
@@ -94,7 +141,7 @@ function Home() {
       {/* <!-- Features Section --> */}
       <section id="features" className="features-section">
         <div className="container">
-          <h2 className="section-title text-center">Benefícios da AgroTechMonitor</h2>
+          <h2 className="section-title text-center text-agri">Benefícios da AgroTechMonitor</h2>
           <div className="row">
             <div ref={revealRef} className="col-md-4 col-lg-3 my-3">
               <div className="feature-box">
@@ -138,7 +185,7 @@ function Home() {
       {/* <!-- How It Works Section --> */}
       <section ref={revealRef} id="how-it-works" className="how-it-works-section">
 
-        <h2 className="section-title text-center">Recursos da AgroTechMonitor</h2>
+        <h2 className="section-title text-center text-agri">Recursos da AgroTechMonitor</h2>
 
         <div className="row bg-agri">
           <div ref={revealRef} className="col-12  p1 h-40 col-md-6  col-lg-5">
@@ -202,7 +249,7 @@ function Home() {
       </section>
       <section id="team" ref={revealRef} className="team-section">
         <div className="container">
-          <h2 className="section-title text-center">Recursos Adicionais</h2>
+          <h2 className="section-title text-center text-agri">Recursos Adicionais</h2>
           <div className="row">
             <div className="col-12 col-sm-6">
               <ul>
@@ -296,7 +343,7 @@ function Home() {
       {/* <!-- Contact Section --> */}
       <section id="contact" className="contact-section py-4">
         <div className="container">
-          <h2 className="section-title text-center mt-5">Solicite uma Demonstração</h2>
+          <h2 className="section-title text-center mt-5 text-agri">Solicite uma Demonstração</h2>
           <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas sobre o nosso dispositivo e receber seus feedbacks.</p>
           <div className="row">
             <div className="col-md-6">
@@ -310,7 +357,7 @@ function Home() {
                 <div className="mb-3">
                   <textarea className="form-control" rows="5" placeholder="Sua mensagem"></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Enviar mensagem</button>
+                <button type="submit" className="btn btn-primary">Enviar mensagem</button> 
               </form>
             </div>
             <div className="col-md-6">
@@ -319,9 +366,9 @@ function Home() {
                 <br />
                 <h3 className='ms-4'>Informações de Contato</h3>
                 <ul>
-                  <li><i class="bi bi-geo-alt"></i> Rua do Mufulama, Talatona, Luanda - Angola</li>
-                  <li><i class="bi bi-telephone"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="tel:+244928134249">+244 928 134 249</a></li>
-                  <li><i class="bi bi-envelope"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="mailto:ja3328173@gmail.com">ja3328173@gmail.com</a></li>
+                  <li><i className="bi bi-geo-alt"></i> Rua do Mufulama, Talatona, Luanda - Angola</li>
+                  <li><i className="bi bi-telephone"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="tel:+244928134249">+244 928 134 249</a></li>
+                  <li><i className="bi bi-envelope"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="mailto:ja3328173@gmail.com">ja3328173@gmail.com</a></li>
                 </ul>
               </div>
             </div>
@@ -330,6 +377,17 @@ function Home() {
       </section>
 
       <br />
+
+      <section id='partner' className="partners-section container">
+        <h1 className="text-agri">Parceiros</h1>
+        <br />
+        <center>
+          <span className="text-secondary">Seja Parceiro AgroTechMonitor</span>
+        </center>
+        <br />
+        <br />
+
+      </section>
 
       <Footer />
 
