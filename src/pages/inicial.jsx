@@ -463,7 +463,7 @@ function Home() {
         ></textarea>
       </div>
       {
-        load == true  ?
+        load == false  ?
       
          <button type="submit" className="rounded-0 btn btn-primary">
         Enviar mensagem <i className="bi bi-send"></i>
