@@ -241,7 +241,7 @@ function Home() {
       </section>
 
       {/* <!-- Contact Section --> */}
-      <section id="contact" className="contact-section">
+      <section id="contact" className="contact-section py-4">
         <div className="container">
           <h2 className="section-title text-center">Solicite uma Demonstração</h2>
           <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas e receber seus feedbacks.</p>
