@@ -23,14 +23,80 @@ import ic8 from '../img/ic8.png';
 import logoo from '../img/logo1.png';
 import Header from '../components/header';
 import Footer from '../components/footer';
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDgxc9jDvjM9NzpDinJ2WdUckSVnf1vAH8",
+  authDomain: "freelangola.firebaseapp.com",
+  databaseURL: "https://freelangola-default-rtdb.firebaseio.com",
+  projectId: "freelangola",
+  storageBucket: "freelangola.appspot.com",
+  messagingSenderId: "856024122438",
+  appId: "1:856024122438:web:569bbc53e180987773f647",
+  measurementId: "G-RHF07QEXZK"
+};
+
+// Inicialize o Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Referência para a coleção 'msgs' no Firestore
+const messagesRef = firebase.firestore().collection('msgs');
 
 
 function Home() {
 
   const [count, setCount] = useState(0);
+
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    const { name, email, message } = event.target.elements;
+  
+    const formData = {
+      name: name.value,
+      email: email.value,
+      message: message.value
+    };
+  
+    // Aqui você pode usar a variável `db` para adicionar os dados ao Firestore
+    messagesRef.add(formData)
+      .then(() => {
+        // Limpar o formulário ou exibir uma mensagem de sucesso, se necessário
+        console.log('Dados adicionados com sucesso'); 
+        setTimeout(() => {
+          Swal.fire('Sucesso!', 'Mensagem enviada com sucesso!', 'success');
+          event.target.reset();
+          setIsButtonDisabled(true);
+        }, 1000);
+      })
+      .catch((error) => {
+        // Lidar com erros, se necessário
+        console.error('Erro ao adicionar dados'); 
+        setTimeout(() => {
+          Swal.fire('Erro!', 'Ocorreu um erro ao tentar enviar sua mensagem!', 'error');
+          event.target.reset();
+          setIsButtonDisabled(true);
+        }, 1000);
+      });
+  };
+
+
+
+
+  const handleInputChange = (event) => {
+    // Verificar se os campos estão vazios
+    const isFormValid = event.target.name.value && event.target.email.value && event.target.message.value;
+    // Atualizar o estado do botão
+    setIsButtonDisabled(!isFormValid);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,64 +146,64 @@ function Home() {
       {/* <!-- Hero Section --> */}
       <section id="hero" className="hero-section w-100 text-center">
         <div ref={revealRef} className="container mx-auto">
-        
+
           <h1 >AgroTechMonitor</h1>
           <p ref={revealRef}>Plataforma para Agricultura Digital em Angola</p>
         </div>
       </section>
       <div className='bg-agri py-2 shadow'>
-      <div className="container d-flex j-around justify-content-between">
-        <button className="btn border-0 rounded-0 shadow-md btn-warning">Comunidade <i className="bi bi-people"></i></button>
-        <button className="btn border-0 rounded-0 shadow-md btn-warning">Produtos <i className="bi bi-cart"></i></button>
-      </div>
-      </div>
-
-<div className="py-4">
-  <div className="row text-center">
-    <div className="col-6 col-sm-4 col-lg-3">
-      <img src={ic12} alt="" style={{height:'5em'}} /> <br />
-
-      <span className="text-secondary">Recomendações</span>
-    </div>
-    <div className="col-6 col-sm-4 col-lg-3">
-      <img src={ic13} alt="" style={{height:'5em'}} /> <br />
-      <span className="text-secondary">Materiais Agrícolas</span>
-    </div>
-    <div className="col-6 col-sm-4 col-lg-3">
-      <img src={ic14} alt="" style={{height:'5em'}} /> <br />
-
-      <span className="text-secondary">Produtos Agrícolas</span>
-    </div>
-    <div className="col-6 col-sm-4 col-lg-3">
-      <img src={ic15} alt="" style={{height:'5em'}} /> <br />
-      
-      <span className="text-secondary">Comunidade</span>
-    </div>
-  </div>
-</div>
-<div className="container text-center">
-  <hr />
-  <div className="py-3 text-center ">
-      <div className="row">
-        <div className="col-12 col-sm-6">
-          <i className="bi bi-people text-agri h1 "></i>
-            <h1 className='text-agri'>{count}</h1>
-          <span className='text-agri'>Agricultores</span>
-        </div>
-        <div className="col-12 col-sm-6">
-          <i className="bi bi-list-check text-agri h1 "></i>
-            <h1 className='text-agri'>{count2}</h1>
-          <span className='text-agri'>Consultas feitas</span>
+        <div className="container d-flex j-around justify-content-between">
+          <button className="btn border-0 rounded-0 shadow-md btn-warning">Comunidade <i className="bi bi-people"></i></button>
+          <button className="btn border-0 rounded-0 shadow-md btn-warning">Produtos <i className="bi bi-cart"></i></button>
         </div>
       </div>
-  </div>
 
-  <br />
-  <div className="bg-agri mx-auto rounded-circle" style={{height:'10em', width:'10em'}}></div>
-  <br />
-  <b className="text-agri">Dispositivo em Desenvolvimento</b>
-  <br />
-</div>
+      <div className="py-4">
+        <div className="row text-center">
+          <div className="col-6 col-sm-4 col-lg-3">
+            <img src={ic12} alt="" style={{ height: '5em' }} /> <br />
+
+            <span className="text-secondary">Recomendações</span>
+          </div>
+          <div className="col-6 col-sm-4 col-lg-3">
+            <img src={ic13} alt="" style={{ height: '5em' }} /> <br />
+            <span className="text-secondary">Materiais Agrícolas</span>
+          </div>
+          <div className="col-6 col-sm-4 col-lg-3">
+            <img src={ic14} alt="" style={{ height: '5em' }} /> <br />
+
+            <span className="text-secondary">Produtos Agrícolas</span>
+          </div>
+          <div className="col-6 col-sm-4 col-lg-3">
+            <img src={ic15} alt="" style={{ height: '5em' }} /> <br />
+
+            <span className="text-secondary">Comunidade</span>
+          </div>
+        </div>
+      </div>
+      <div className="container text-center">
+        <hr />
+        <div className="py-3 text-center ">
+          <div className="row">
+            <div className="col-12 col-sm-6">
+              <i className="bi bi-people text-agri h1 "></i>
+              <h1 className='text-agri'>{count}</h1>
+              <span className='text-agri'>Agricultores</span>
+            </div>
+            <div className="col-12 col-sm-6">
+              <i className="bi bi-list-check text-agri h1 "></i>
+              <h1 className='text-agri'>{count2}</h1>
+              <span className='text-agri'>Consultas feitas</span>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div className="bg-agri mx-auto rounded-circle" style={{ height: '10em', width: '10em' }}></div>
+        <br />
+        <b className="text-agri">Dispositivo em Desenvolvimento</b>
+        <br />
+      </div>
       {/* <!-- Features Section --> */}
       <section id="features" className="features-section">
         <div className="container">
@@ -328,37 +394,59 @@ function Home() {
 
           </div>
           <div style={{ display: 'flex', placeItems: 'center', placeContent: 'center' }} className="bg-agri col-12 col-lg-6 text-center px-3 px-sm-5 col-xl-7 py-5">
-          <blockquote className="destaque">
- 
-              <h1 style={{fontWeight:'bolder'}} className='cc'>
-              Experimente agora o AgroTechMonitor e eleve sua agricultura a um novo nível. Acesse nossa plataforma e comece a colher os benefícios da agricultura digital. Seja parte da revolução agrícola!
+            <blockquote className="destaque">
+
+              <h1 style={{ fontWeight: 'bolder' }} className='cc'>
+                Experimente agora o AgroTechMonitor e eleve sua agricultura a um novo nível. Acesse nossa plataforma e comece a colher os benefícios da agricultura digital. Seja parte da revolução agrícola!
               </h1>
-              </blockquote>
+            </blockquote>
           </div>
         </div>
       </section>
-<center className='mt-5'>
-  <button className="btn btn-primary">Cadastre - se <i className="bi bi-arrow-right-short"></i></button>
-</center>
+      <center className='mt-5'>
+        <button className="btn btn-primary rounded-0">Cadastre - se <i className="bi bi-arrow-right-short"></i></button>
+      </center>
       {/* <!-- Contact Section --> */}
       <section id="contact" className="contact-section py-4">
         <div className="container">
-          <h2 className="section-title text-center mt-5 text-agri">Solicite uma Demonstração</h2>
+          <h2 className="section-title text-center mt-5 text-agri">Solicite uma Demonstração Gratuita</h2>
           <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas sobre o nosso dispositivo e receber seus feedbacks.</p>
           <div className="row">
-            <div className="col-md-6">
-              <form>
-                <div className="mb-3">
-                  <input type="text" className="form-control" placeholder="Seu nome" />
-                </div>
-                <div className="mb-3">
-                  <input type="email" className="form-control" placeholder="Seu e-mail" />
-                </div>
-                <div className="mb-3">
-                  <textarea className="form-control" rows="5" placeholder="Sua mensagem"></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">Enviar mensagem</button> 
-              </form>
+            <div className="col-md-6">    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <input
+          type="text"
+          required
+          className="form-control"
+          placeholder="Seu nome"
+          name="name"
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="mb-3">
+        <input
+          type="email"
+          required
+          className="form-control"
+          placeholder="Seu e-mail / Telefone"
+          name="email"
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="mb-3">
+        <textarea
+          className="form-control"
+          required
+          rows="4"
+          placeholder="Sua mensagem"
+          name="message"
+          onChange={handleInputChange}
+        ></textarea>
+      </div>
+      <button type="submit" className="rounded-0 btn btn-primary" disabled={isButtonDisabled}>
+        Enviar mensagem <i className="bi bi-s"></i>
+      </button>
+    </form>
             </div>
             <div className="col-md-6">
               <div className="contact-info">
@@ -378,11 +466,20 @@ function Home() {
 
       <br />
 
+      <center>
+
+        <div className="bg-agri" style={{ height: '1rem', width: '7vw' }}></div>
+
+      </center>
+      <br />
+
+
       <section id='partner' className="partners-section container">
         <h1 className="text-agri">Parceiros</h1>
         <br />
         <center>
-          <span className="text-secondary">Seja Parceiro AgroTechMonitor</span>
+          <img src={logo} style={{ height: '4em' }} alt="" /> <br />
+          <span className="text-secondary">Seja Parceiro AgroTechMonitor, entre em contacto.</span>
         </center>
         <br />
         <br />

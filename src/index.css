@@ -229,10 +229,12 @@ blockquote::after {
 .btn-primary {
   background-color: #00d250!important;
   border-color: #00d250!important;
+  transition: .3s;
 }
 
 .btn-primary:hover, .btn-primary:focus-within {
-  background-color: #00b947 !important;
+  background-color: #049b3e!important;
+  transition: .3s;
   border-color: #00d250;
 }
 
@@ -420,8 +422,8 @@ ul li {
 }
 
 .form-control:focus-within {
-  box-shadow: none;
-  border-color: #00d250;
+  box-shadow: none!important;
+  border-color: #00d250!important;
 }
 
 .foo {

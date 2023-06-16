@@ -33,7 +33,7 @@ const Navbar = () => {
               <a className="nav-link" href="#team">Adicional</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link btn btn-primary text-white" href="#">Login</a>
+              <a className="nav-link rounded-0 btn btn-primary text-white" href="#">Login</a>
             </li>
           </ul>
         </div>
