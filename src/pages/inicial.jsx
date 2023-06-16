@@ -15,6 +15,10 @@ import ic3 from '../img/ic3.png';
 import ic4 from '../img/ic4.png';
 import ic5 from '../img/ic6.png';
 import ic7 from '../img/ic7.png';
+import ic12 from '../img/ic12.png';
+import ic13 from '../img/ic13.png';
+import ic14 from '../img/ic14.png';
+import ic15 from '../img/ic15.png';
 import ic8 from '../img/ic8.png';
 import logoo from '../img/logo1.png';
 import Header from '../components/header';
@@ -55,6 +59,38 @@ function Home() {
       </div>
       </div>
 
+<div className="py-4">
+  <div className="row text-center">
+    <div className="col-12 col-sm-4 col-lg-3">
+      <img src={ic12} alt="" style={{height:'5em'}} /> <br />
+
+      <span className="text-secondary">Recomendações</span>
+    </div>
+    <div className="col-12 col-sm-4 col-lg-3">
+      <img src={ic13} alt="" style={{height:'5em'}} /> <br />
+      <span className="text-secondary">Materiais Agrícolas</span>
+    </div>
+    <div className="col-12 col-sm-4 col-lg-3">
+      <img src={ic14} alt="" style={{height:'5em'}} /> <br />
+
+      <span className="text-secondary">Produtos Agrícolas</span>
+    </div>
+    <div className="col-12 col-sm-4 col-lg-3">
+      <img src={ic15} alt="" style={{height:'5em'}} /> <br />
+      
+      <span className="text-secondary">Comunidade</span>
+    </div>
+  </div>
+</div>
+<div className="container text-center">
+  <hr />
+
+  <br />
+  <div className="bg-agri mx-auto rounded-circle" style={{height:'10em', width:'10em'}}></div>
+  <br />
+  <b className="text-agri">Dispositivo em Desenvolvimento</b>
+  <br />
+</div>
       {/* <!-- Features Section --> */}
       <section id="features" className="features-section">
         <div className="container">
