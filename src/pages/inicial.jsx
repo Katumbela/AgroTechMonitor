@@ -226,7 +226,7 @@ function Home() {
 
       <section className="action-section">
         <div className="row">
-          <div className="col-12 c h-70 col-lg-6 col-xl-5">
+          <div className="col-12 c col-lg-6 col-xl-5">
 
           </div>
           <div style={{ display: 'flex', placeItems: 'center', placeContent: 'center' }} className="bg-agri col-12 col-lg-6 text-center px-3 px-sm-5 col-xl-7 py-5">

@@ -135,6 +135,14 @@ blockquote::after {
   text-shadow: 3px 4px 9px #f2f200;
 }
 
+
+@media (max-width:600px) {
+  
+.action-section .c {
+  height: 30vh;
+}
+}
+
 @media (min-width: 500px) {
 
   .j-around{
@@ -188,7 +196,7 @@ blockquote::after {
   background-size: cover;
 }
 .bg-i {
-  background: linear-gradient(180deg, #00d251e3, #d2b600ec),  url(./img/bg2.jpeg);
+  /* background: linear-gradient(180deg, #00d251e3, #d2b600ec),  url(./img/bg2.jpeg); */
   background-repeat: no-repeat;
   background-size: cover;
 }
