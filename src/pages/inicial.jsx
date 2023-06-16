@@ -110,7 +110,7 @@ function Home() {
       } else {
         clearInterval(interval);
       }
-    }, 100);
+    }, 300);
 
     return () => {
       clearInterval(interval);
@@ -126,7 +126,7 @@ function Home() {
       } else {
         clearInterval(interval);
       }
-    }, 100);
+    }, 300);
 
     return () => {
       clearInterval(interval);
