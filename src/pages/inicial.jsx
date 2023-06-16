@@ -52,12 +52,15 @@ const messagesRef = firebase.firestore().collection('msgs');
 function Home() {
 
   const [count, setCount] = useState(0);
+  const [load, setL] = useState(false);
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const handleSubmit = (event) => {
+    
     event.preventDefault();
   
+    setL(true)
     const { name, email, message } = event.target.elements;
   
     const formData = {
@@ -72,9 +75,10 @@ function Home() {
         // Limpar o formulário ou exibir uma mensagem de sucesso, se necessário
         console.log('Dados adicionados com sucesso'); 
         setTimeout(() => {
-          Swal.fire('Sucesso!', 'Mensagem enviada com sucesso!', 'success');
+          Swal.fire('Sucesso!', 'Mensagem enviada com sucesso! <br /> Entraremos em contacto muito em breve.', 'success');
           event.target.reset();
           setIsButtonDisabled(true);
+          setL(false)
         }, 1000);
       })
       .catch((error) => {
@@ -84,6 +88,7 @@ function Home() {
           Swal.fire('Erro!', 'Ocorreu um erro ao tentar enviar sua mensagem!', 'error');
           event.target.reset();
           setIsButtonDisabled(true);
+          setL(false)
         }, 1000);
       });
   };
@@ -137,6 +142,20 @@ function Home() {
       // Opções de animação
     });
   }, []);
+
+
+  const [dots, setDots] = useState('');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((prevDots) => (prevDots.length < 5 ? prevDots + '.' : ''));
+    }, 200);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
 
   document.title = 'Pagina Inicial | AgroTechMonitor'
   return (
@@ -443,9 +462,20 @@ function Home() {
           onChange={handleInputChange}
         ></textarea>
       </div>
-      <button type="submit" className="rounded-0 btn btn-primary" disabled={isButtonDisabled}>
-        Enviar mensagem <i className="bi bi-s"></i>
+      {
+        load == true  ?
+      
+         <button type="submit" className="rounded-0 btn btn-primary">
+        Enviar mensagem <i className="bi bi-send"></i>
       </button>
+
+      :
+      <center>
+      <span className="text-secondary">Enviando{dots}</span>
+    </center>
+    
+
+      }
     </form>
             </div>
             <div className="col-md-6">

@@ -226,7 +226,7 @@ blockquote::after {
   color: #00d250!important;
 }
 
-.btn-primary {
+.btn-primary, .swal2-confirm {
   background-color: #00d250!important;
   border-color: #00d250!important;
   transition: .3s;
