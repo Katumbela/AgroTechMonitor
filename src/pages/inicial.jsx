@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../components/cabeca.css'
 import logo from '../img/logo2.png';
 import katumbela from '../img/im1.jpeg';
@@ -20,7 +20,21 @@ import logoo from '../img/logo1.png';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
+import ScrollReveal from 'scrollreveal';
+import { useEffect } from 'react';
+
+
 function Home() {
+
+  const revealRef = useRef(null);
+
+  useEffect(() => {
+    const sr = ScrollReveal();
+    sr.reveal(revealRef.current, {
+      // Opções de animação
+    });
+  }, []);
+
   document.title = 'Pagina Inicial | AgroTechMonitor'
   return (
     <div classNameName="">
@@ -28,9 +42,10 @@ function Home() {
 
       {/* <!-- Hero Section --> */}
       <section id="hero" className="hero-section w-100 text-center">
-        <div className="container mx-auto">
-          <h1>AgroTechMonitor</h1>
-          <p>Plataforma para Agricultura Digital em Angola</p>
+        <div ref={revealRef} className="container mx-auto">
+        
+          <h1 >AgroTechMonitor</h1>
+          <p ref={revealRef}>Plataforma para Agricultura Digital em Angola</p>
         </div>
       </section>
       <div className='bg-agri py-2 shadow'>
@@ -45,21 +60,21 @@ function Home() {
         <div className="container">
           <h2 className="section-title text-center">Benefícios da AgroTechMonitor</h2>
           <div className="row">
-            <div className="col-md-4 col-lg-3 my-3">
+            <div ref={revealRef} className="col-md-4 col-lg-3 my-3">
               <div className="feature-box">
                 <img src={ic1} alt="Transferências Rápidas" className="feature-icon" />
                 <h3 className="feature-title">Aumente sua produtividade</h3>
                 <p className="feature-description">Utilize os recursos avançados da plataforma para otimizar seus processos agrícolas e alcançar maiores rendimentos.</p>
               </div>
             </div>
-            <div className="col-md-4 col-lg-3 my-3">
+            <div ref={revealRef} className="col-md-4 col-lg-3 my-3">
               <div className="feature-box">
                 <img src={ic8} alt="Pagamentos Digitais" className="feature-icon" />
                 <h3 className="feature-title"> Tomada de decisões informadas</h3>
                 <p className="feature-description">Obtenha insights valiosos sobre o solo, clima e saúde das plantas para tomar decisões fundamentadas e maximizar os resultados.</p>
               </div>
             </div>
-            <div className="col-md-4 col-lg-3 my-3">
+            <div ref={revealRef} className="col-md-4 col-lg-3 my-3">
               <div className="feature-box">
                 <img src={ic7} alt="Cartões Virtuais" className="feature-icon" />
                 <h3 className="feature-title">Comunidade de Agricultores</h3>
@@ -73,7 +88,7 @@ function Home() {
                 <p className="feature-description">Identifique oportunidades de otimização e reduza o desperdício de recursos, como água e fertilizantes, resultando em economia financeira.</p>
               </div>
             </div>
-            <div className="col-md-4 col-lg-3 my-3">
+            <div ref={revealRef} className="col-md-4 col-lg-3 my-3">
               <div className="feature-box">
                 <img src={ic5} alt="Caixa da Plataforma" className="feature-icon" />
                 <h3 className="feature-title">Market Store</h3>
@@ -85,15 +100,15 @@ function Home() {
       </section>
 
       {/* <!-- How It Works Section --> */}
-      <section id="how-it-works" className="how-it-works-section">
+      <section ref={revealRef} id="how-it-works" className="how-it-works-section">
 
         <h2 className="section-title text-center">Recursos da AgroTechMonitor</h2>
 
         <div className="row bg-agri">
-          <div className="col-12  p1 h-40 col-md-6  col-lg-5">
+          <div ref={revealRef} className="col-12  p1 h-40 col-md-6  col-lg-5">
             {/* <img src={im10} className='img-fluid w-100' alt="" /> */}
           </div>
-          <div style={{ display: 'flex', placeItems: 'center', placeContent: 'center' }} className="col-12 py-5 text-center px-3 px-sm-5 bg-i h-40 col-md-6 col-lg-7">
+          <div ref={revealRef} style={{ display: 'flex', placeItems: 'center', placeContent: 'center' }} className="col-12 py-5 text-center px-3 px-sm-5 bg-i h-40 col-md-6 col-lg-7">
             <div className="">
               <img src={logo} alt="" />
               <h1 className='h1'>Monitoramento do solo em tempo real</h1>
@@ -149,7 +164,7 @@ function Home() {
       </div>
     </div> */}
       </section>
-      <section id="team" className="team-section">
+      <section id="team" ref={revealRef} className="team-section">
         <div className="container">
           <h2 className="section-title text-center">Recursos Adicionais</h2>
           <div className="row">
@@ -224,7 +239,7 @@ function Home() {
       </section> */}
 
 
-      <section className="action-section">
+      <section ref={revealRef} className="action-section">
         <div className="row">
           <div className="col-12 c col-lg-6 col-xl-5">
 
@@ -239,12 +254,14 @@ function Home() {
           </div>
         </div>
       </section>
-
+<center className='mt-5'>
+  <button className="btn btn-primary">Cadastre - se <i className="bi bi-arrow-right-short"></i></button>
+</center>
       {/* <!-- Contact Section --> */}
       <section id="contact" className="contact-section py-4">
         <div className="container">
-          <h2 className="section-title text-center">Solicite uma Demonstração</h2>
-          <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas e receber seus feedbacks.</p>
+          <h2 className="section-title text-center mt-5">Solicite uma Demonstração</h2>
+          <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas sobre o nosso dispositivo e receber seus feedbacks.</p>
           <div className="row">
             <div className="col-md-6">
               <form>
@@ -268,7 +285,7 @@ function Home() {
                 <ul>
                   <li><i class="bi bi-geo-alt"></i> Rua do Mufulama, Talatona, Luanda - Angola</li>
                   <li><i class="bi bi-telephone"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="tel:+244928134249">+244 928 134 249</a></li>
-                  <li><i class="bi bi-envelope"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="mailto:info@afrikapay.com">info@afrikapay.com</a></li>
+                  <li><i class="bi bi-envelope"></i> <a className='text-dark' style={{ textDecoration: 'none' }} href="mailto:ja3328173@gmail.com">ja3328173@gmail.com</a></li>
                 </ul>
               </div>
             </div>
