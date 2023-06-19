@@ -1,19 +1,28 @@
 import React from 'react';
 import '../components/cabeca.css'
 import b from '../img/logo1.png';
-import img1 from '../img/im1.jpeg';
+import batatas from '../img/batata.jpeg';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import Contador from '../components/contador';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker'
 
 function Leilao() {
+    const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
     document.title = 'Leilão | AgroTechMonitor'
     return (
         <div className="">
             <Header />
-            <div style={{ background: `url(${img1})`, backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundSize: 'cover', objectFit: 'cover', backgroundPosition: 'center center', }} className='h-55 position-relative'>
+            <div style={{ background: `url(${batatas})`, backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundSize: 'cover', objectFit: 'cover', backgroundPosition: 'center center', }} className='h-55 position-relative'>
 
                 <div style={{ bottom: '0', background: '#09AE0098', color: 'white', left: '0', right: '0' }} className="position-absolute text-center py-3">
-                    <h1>Lelão de $NomeProduto</h1>
+                    <h1>Lelão de Batatas</h1>
                 </div>
             </div>
 
@@ -21,10 +30,12 @@ function Leilao() {
             <br />
             <main className='container'>
                 <center>
-                    <h1>Termina em: 05:44:20</h1>
+                {/* <DatePicker selected={selectedDate} onChange={handleDateChange} /> */}
+   
+                    <h3>Termina em: <Contador dataTermino={'2023-06-23'}  /></h3>
                     <hr />
                 </center>
-                <h2>1Kg - 6000 Kz</h2>
+                <h2>1Kg - 600 Kz</h2>
                 <p>Fazenda - XX, Benguela
 
                     <br />
@@ -42,11 +53,26 @@ function Leilao() {
 
 
                 <div className="place-feed bg-white">
-                    <div className="d-flex">
+                    <div className="d-flex w-75 mx-auto ">
                         <input type="text" className="form-control rounded-0" placeholder='Escreva alguma coisa '/> <i className="bi text-agri f-20 ms-3 py-1 bi-send"></i> 
                     </div>
                 </div>
 
+                <br />
+                
+                <br />
+                <br />
+                
+                <br />
+                <br />
+                
+                <br />
+                <br />
+                
+                <br />
+                <br />
+                
+                <br />
                 <br />
                 
                 <br />

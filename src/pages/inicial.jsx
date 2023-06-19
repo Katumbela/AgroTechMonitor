@@ -7,6 +7,9 @@ import im2 from '../img/im2.jpeg';
 import im3 from '../img/im3.jpeg';
 import im6 from '../img/im6.jpeg';
 import im9 from '../img/im9.jpeg';
+import bananas from '../img/bananas.jpeg';
+import tomates from '../img/tomates.webp';
+import batata from '../img/batata.jpeg';
 import im10 from '../img/im10.jpeg';
 import im5 from '../img/im5.jpeg';
 import ic1 from '../img/ic1.png';
@@ -29,6 +32,7 @@ import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { NavLink } from 'react-router-dom';
+import Contador from '../components/contador';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -171,10 +175,10 @@ function Home() {
           <p ref={revealRef}>Plataforma para Agricultura Digital em Angola</p>
         </div>
       </section>
-      <div className='bg-agri py-2 shadow'>
+      <div className='bg-agri py-3 shadow'>
         <div className="container d-flex j-around justify-content-between">
           <button className="btn border-0 rounded-0 shadow-md btn-warning">Comunidade <i className="bi bi-people"></i></button>
-          <NavLink to='/leilao' className="btn border-0 rounded-0 shadow-md btn-warning">Leilão <i className="bi bi-people"></i></NavLink>
+          <NavLink to='/leilao' className="btn border-0 rounded-0 shadow-md btn-warning">Leilão <i className="bi bi-market"></i></NavLink>
           <NavLink to='/feiras' className="btn border-0 rounded-0 shadow-md btn-warning">Feira <i className="bi bi-cart"></i></NavLink>
         </div>
       </div>
@@ -212,14 +216,14 @@ function Home() {
           <div className="col-12 col-md-6 my-3 col-lg-4">
             <div className="row">
               <div className="col-12 col-sm-5 col-lg-4">
-              <img src={im2} className='w-100' alt="" />
+              <img src={tomates} className='w-100 rounded-2'  alt="" />
               </div>
               <div className="col-12 col-sm-7 col-lg-8">
-              <b className='text-agri'>Leilão de $Nome Produto</b>
+              <b className='text-agri'>Leilão de Tomates</b>
              
              <div className="my-auto">
-             <p className="my-auto">
-                Termina em: <b>05:34:05</b>
+             <p className="my-auto f-14">
+             Termino: <b><Contador dataTermino={'2023-06-21'} /></b>
               </p>
              </div>
                 </div>
@@ -228,14 +232,14 @@ function Home() {
           <div className="col-12 col-md-6 my-3 col-lg-4">
             <div className="row">
               <div className="col-12 col-sm-5 col-lg-4">
-              <img src={im3} className='w-100' alt="" />
+              <img src={bananas} className='w-100 rounded-2' alt="" />
               </div>
               <div className="col-12 col-sm-7 col-lg-8">
-              <b className='text-agri'>Leilão de $Nome Produto</b>
+              <b className='text-agri'>Leilão de Bananas de Mesa</b>
              
              <div className="my-auto">
-             <p className="my-auto">
-                Termina em: <b>05:34:05</b>
+             <p className="my-auto f-14">
+              Termino: <b><Contador dataTermino={'2023-06-23'} /></b>
               </p>
              </div>
                 </div>

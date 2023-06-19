@@ -1,6 +1,11 @@
 import React from 'react';
 import '../components/cabeca.css'
 import b from '../img/logo1.png';
+import espin from '../img/espinafre.jpeg';
+import tomate from '../img/tomat.png';
+import repolho from '../img/repolho.webp';
+import cenoura from '../img/cenoura.webp';
+import bb from '../img/logo1.png';
 import img1 from '../img/im1.jpeg';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -25,12 +30,11 @@ function Feiras() {
                 <div class="row ">
                     <div class="col-6 col-sm-4 my-3 col-md-3 col-lg-2 col-xxl-1">
                         <div className="prod text-center">
-                            <div style={{ height: '4em', width: '4em' }} className="bg-agri mx-auto rounded-3">
-                            </div>
+                            <img src={repolho} style={{ height: '7em', width: '7em' }} className="bg-agri mx-auto rounded-3" /> <br />
                             <b className="text-agri">
-                                Nome do Produto
+                                Repolho 
                             </b>
-                            <p className="text-secondary f-12">1Kg - 5000 Kz <br />
+                            <p className="text-secondary f-12">1Kg - 300 Kz  &middot; Min: 25 Kg <br />
                                 Fazenda YPP - Luanda
                                 <br />
                                 <a href="#">Entrar em contato</a>
@@ -40,12 +44,11 @@ function Feiras() {
                     </div>
                     <div class="col-6 col-sm-4 my-3 col-md-3 col-lg-2 col-xxl-1">
                         <div className="prod text-center">
-                            <div style={{ height: '4em', width: '4em' }} className="bg-agri mx-auto rounded-3">
-                            </div>
+                            <img src={cenoura} style={{ height: '7em', width: '7em' }} className=" mx-auto rounded-3" /> <br />
                             <b className="text-agri">
-                                Nome do Produto
+                                Cenouras
                             </b>
-                            <p className="text-secondary f-12">1Kg - 5000 Kz <br />
+                            <p className="text-secondary f-12">1Kg - 500 Kz  &middot; Min: 20 Kg <br />
                                 Fazenda YPP - Luanda
                                 <br />
                                 <a href="#">Entrar em contato</a>
@@ -55,12 +58,11 @@ function Feiras() {
                     </div>
                     <div class="col-6 col-sm-4 my-3 col-md-3 col-lg-2 col-xxl-1">
                         <div className="prod text-center">
-                            <div style={{ height: '4em', width: '4em' }} className="bg-agri mx-auto rounded-3">
-                            </div>
+                            <img src={tomate} style={{ height: '7em', width: '7em' }} className=" mx-auto rounded-3" /> <br />
                             <b className="text-agri">
-                                Nome do Produto
+                                Tomates
                             </b>
-                            <p className="text-secondary f-12">1Kg - 5000 Kz <br />
+                            <p className="text-secondary f-12">1Kg - 300 Kz &middot; Min: 20 Kg <br />
                                 Fazenda YPP - Luanda
                                 <br />
                                 <a href="#">Entrar em contato</a>
@@ -70,12 +72,11 @@ function Feiras() {
                     </div>
                     <div class="col-6 col-sm-4 my-3 col-md-3 col-lg-2 col-xxl-1">
                         <div className="prod text-center">
-                            <div style={{ height: '4em', width: '4em' }} className="bg-agri mx-auto rounded-3">
-                            </div>
+                            <img src={espin} style={{ height: '7em', width: '7em' }} className="bg-agri mx-auto rounded-3" /> <br />
                             <b className="text-agri">
-                                Nome do Produto
+                                Espinafre
                             </b>
-                            <p className="text-secondary f-12">1Kg - 5000 Kz <br />
+                            <p className="text-secondary f-12">1Kg - 200 Kz &middot; Min: 30 Kg<br />
                                 Fazenda YPP - Luanda
                                 <br />
                                 <a href="#">Entrar em contato</a>
