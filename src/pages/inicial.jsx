@@ -28,6 +28,7 @@ import 'firebase/compat/firestore';
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -173,7 +174,8 @@ function Home() {
       <div className='bg-agri py-2 shadow'>
         <div className="container d-flex j-around justify-content-between">
           <button className="btn border-0 rounded-0 shadow-md btn-warning">Comunidade <i className="bi bi-people"></i></button>
-          <button className="btn border-0 rounded-0 shadow-md btn-warning">Produtos <i className="bi bi-cart"></i></button>
+          <NavLink to='/leilao' className="btn border-0 rounded-0 shadow-md btn-warning">Leilão <i className="bi bi-people"></i></NavLink>
+          <NavLink to='/feiras' className="btn border-0 rounded-0 shadow-md btn-warning">Feira <i className="bi bi-cart"></i></NavLink>
         </div>
       </div>
 
@@ -200,6 +202,48 @@ function Home() {
           </div>
         </div>
       </div>
+        <hr />
+      <div className="pub container">
+        <center>
+          <h2 className="text-agri">Leilões a Decorrer</h2>
+         
+        </center>
+        <div className="row">
+          <div className="col-12 col-md-6 my-3 col-lg-4">
+            <div className="row">
+              <div className="col-12 col-sm-5 col-lg-4">
+              <img src={im2} className='w-100' alt="" />
+              </div>
+              <div className="col-12 col-sm-7 col-lg-8">
+              <b className='text-agri'>Leilão de $Nome Produto</b>
+             
+             <div className="my-auto">
+             <p className="my-auto">
+                Termina em: <b>05:34:05</b>
+              </p>
+             </div>
+                </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-6 my-3 col-lg-4">
+            <div className="row">
+              <div className="col-12 col-sm-5 col-lg-4">
+              <img src={im3} className='w-100' alt="" />
+              </div>
+              <div className="col-12 col-sm-7 col-lg-8">
+              <b className='text-agri'>Leilão de $Nome Produto</b>
+             
+             <div className="my-auto">
+             <p className="my-auto">
+                Termina em: <b>05:34:05</b>
+              </p>
+             </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container text-center">
         <hr />
         <div className="py-3 text-center ">

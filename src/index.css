@@ -22,12 +22,53 @@ code {
   border: none!important;
   box-shadow: none!important;
 }
-
+.f-10 {
+  font-size: 10px;
+}
+.f-12 {
+  font-size: 12px;
+}
+.f-14 {
+  font-size: 14px;
+}
+.f-16 {
+  font-size: 16px;
+}
+.f-18 {
+  font-size: 18px;
+}
+.f-20 {
+  font-size:20px;
+}
+.f-22 {
+  font-size: 22px;
+}
+.f-24 {
+  font-size: 24px;
+}
+.f-26 {
+  font-size: 26px;
+}
+.f-28 {
+  font-size: 28px;
+}
+.f-30 {
+  font-size: 30px;
+}
+.f-32 {
+  font-size: 32px;
+}
+.f-34 {
+  font-size: 34px;
+}
 .h-100 {
   height: 100vh;
 }
 .h-50 {
-  height: 50vh;
+  height: 50vh!important;
+}
+.h-55 {
+  height: 55vh!important;
 }
 .h-70 {
   height: 70vh;
@@ -40,6 +81,9 @@ code {
 }
 .h-40 {
   height: 40vh;
+}
+.h-60 {
+  height: 60vh;
 }
 .h-80 {
   height: 80vh;
@@ -74,6 +118,12 @@ blockquote.destaque {
 } */
 
 
+::selection {
+  color: #eada00!important;
+  background: #00d250!important;
+  text-shadow: -3px 3px 12px rgb(255, 255, 255);
+}
+
 /* Estilos gerais */
 body {
   font-family: 'Open Sans', sans-serif;
@@ -85,6 +135,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+
+.place-feed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  box-shadow: 2px 3px 14px green;
+  bottom: 0;
+  padding: 1.5rem .6rem;
+
 }
 
 blockquote::before {
