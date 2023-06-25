@@ -32,7 +32,7 @@ function Leilao() {
                 <center>
                 {/* <DatePicker selected={selectedDate} onChange={handleDateChange} /> */}
    
-                    <h3>Termina em: <Contador dataTermino={'2023-06-23'}  /></h3>
+                    <h3>Termina em: <Contador dataTermino={'2023-07-02'}  /></h3>
                     <hr />
                 </center>
                 <h2>1Kg - 600 Kz</h2>

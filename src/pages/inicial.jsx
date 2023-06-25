@@ -222,7 +222,7 @@ function Home() {
 
                 <div className="my-auto">
                   <p className="my-auto f-14">
-                    Termino: <b><Contador dataTermino={'2023-06-21'} /></b>
+                    Termino: <b><Contador dataTermino={'2023-06-28'} /></b>
                   </p>
                 </div>
               </div>
@@ -238,7 +238,7 @@ function Home() {
 
                 <div className="my-auto">
                   <p className="my-auto f-14">
-                    Termino: <b><Contador dataTermino={'2023-06-23'} /></b>
+                    Termino: <b><Contador dataTermino={'2023-06-29'} /></b>
                   </p>
                 </div>
               </div>
