@@ -16,7 +16,6 @@ function Feiras() {
         <div className="">
             <Header />
             <div style={{ background: `url(${img1})`, backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundSize: 'cover', objectFit: 'cover', backgroundPosition: 'center center', }} className='h-55 position-relative'>
-
                 <div style={{ bottom: '0', background: '#09AE0098', color: 'white', left: '0', right: '0' }} className="position-absolute text-center py-3">
                     <h1>Feira AgroTechMonitor</h1>
                 </div>
@@ -26,6 +25,7 @@ function Feiras() {
             <br />
             <main className='container'>
                 <h2>Explore variados produtos aqui</h2>
+                <p className="f-12 text-secondary">Recomendado comprar na mesma província em que se para encurtar o tempo de entrega.</p>
                 <br />
                 <div class="row ">
                     <div class="col-6 col-sm-4 my-3 col-md-3 col-lg-2 col-xxl-1">

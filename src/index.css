@@ -299,6 +299,29 @@ blockquote::after {
   border-color: #00d250;
 }
 
+
+.btn-outline-primary {
+  background-color: none !important;
+  border-color: #00d250!important;
+  color: #00d250!important;
+  transition: .3s;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus-within {
+  background-color: #00d250!important;
+  transition: .3s;
+  color: white!important;
+  border-color: #00d250;
+}
+
+.form-control {
+  border-radius: 0!important;
+}
+
+.nav-link:hover {
+  color: #049b3e!important;
+}
+
 /* Estilos do Features Section */
 .features-section {
   padding: 100px 0;

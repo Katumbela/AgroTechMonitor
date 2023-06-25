@@ -62,23 +62,23 @@ function Home() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const handleSubmit = (event) => {
-    
+
     event.preventDefault();
-  
+
     setL(true)
     const { name, email, message } = event.target.elements;
-  
+
     const formData = {
       name: name.value,
       email: email.value,
       message: message.value
     };
-  
+
     // Aqui você pode usar a variável `db` para adicionar os dados ao Firestore
     messagesRef.add(formData)
       .then(() => {
         // Limpar o formulário ou exibir uma mensagem de sucesso, se necessário
-        console.log('Dados adicionados com sucesso'); 
+        console.log('Dados adicionados com sucesso');
         setTimeout(() => {
           Swal.fire('Sucesso!', 'Mensagem enviada com sucesso! <br /> Entraremos em contacto muito em breve.', 'success');
           event.target.reset();
@@ -88,7 +88,7 @@ function Home() {
       })
       .catch((error) => {
         // Lidar com erros, se necessário
-        console.error('Erro ao adicionar dados'); 
+        console.error('Erro ao adicionar dados');
         setTimeout(() => {
           Swal.fire('Erro!', 'Ocorreu um erro ao tentar enviar sua mensagem!', 'error');
           event.target.reset();
@@ -177,8 +177,7 @@ function Home() {
       </section>
       <div className='bg-agri py-3 shadow'>
         <div className="container d-flex j-around justify-content-between">
-          <button className="btn border-0 rounded-0 shadow-md btn-warning">Comunidade <i className="bi bi-people"></i></button>
-          <NavLink to='/leilao' className="btn border-0 rounded-0 shadow-md btn-warning">Leilão <i className="bi bi-market"></i></NavLink>
+          <NavLink to='/leilao' className="btn border-0 rounded-0 shadow-md btn-warning">Leilão <i className="bi bi-people"></i><i className="bi bi-market"></i></NavLink>
           <NavLink to='/feiras' className="btn border-0 rounded-0 shadow-md btn-warning">Feira <i className="bi bi-cart"></i></NavLink>
         </div>
       </div>
@@ -206,43 +205,43 @@ function Home() {
           </div>
         </div>
       </div>
-        <hr />
+      <hr />
       <div className="pub container">
         <center>
           <h2 className="text-agri">Leilões a Decorrer</h2>
-         
+
         </center>
         <div className="row">
           <div className="col-12 col-md-6 my-3 col-lg-4">
             <div className="row">
               <div className="col-12 col-sm-5 col-lg-4">
-              <img src={tomates} className='w-100 rounded-2'  alt="" />
+                <img src={tomates} className='w-100 rounded-2' alt="" />
               </div>
               <div className="col-12 col-sm-7 col-lg-8">
-              <b className='text-agri'>Leilão de Tomates</b>
-             
-             <div className="my-auto">
-             <p className="my-auto f-14">
-             Termino: <b><Contador dataTermino={'2023-06-21'} /></b>
-              </p>
-             </div>
+                <b className='text-agri'>Leilão de Tomates</b>
+
+                <div className="my-auto">
+                  <p className="my-auto f-14">
+                    Termino: <b><Contador dataTermino={'2023-06-21'} /></b>
+                  </p>
                 </div>
+              </div>
             </div>
           </div>
           <div className="col-12 col-md-6 my-3 col-lg-4">
             <div className="row">
               <div className="col-12 col-sm-5 col-lg-4">
-              <img src={bananas} className='w-100 rounded-2' alt="" />
+                <img src={bananas} className='w-100 rounded-2' alt="" />
               </div>
               <div className="col-12 col-sm-7 col-lg-8">
-              <b className='text-agri'>Leilão de Bananas de Mesa</b>
-             
-             <div className="my-auto">
-             <p className="my-auto f-14">
-              Termino: <b><Contador dataTermino={'2023-06-23'} /></b>
-              </p>
-             </div>
+                <b className='text-agri'>Leilão de Bananas de Mesa</b>
+
+                <div className="my-auto">
+                  <p className="my-auto f-14">
+                    Termino: <b><Contador dataTermino={'2023-06-23'} /></b>
+                  </p>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -271,6 +270,11 @@ function Home() {
         <b className="text-agri">Dispositivo em Desenvolvimento</b>
         <br />
       </div>
+
+      <br />
+      <section className="bg-img px-2 px-sm-5 text-center " style={{ background: `linear-gradient(90deg, #00CA14BA, #00CA14BA), url(${im5}) center center`, height: '20vh', display: 'grid', placeContent: 'center', fontWeight: '300', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+        <h2 className="text-white">A AgroTechMonitor está para servi-lo e ajudar a servir</h2>
+      </section>
       {/* <!-- Features Section --> */}
       <section id="features" className="features-section">
         <div className="container">
@@ -471,7 +475,7 @@ function Home() {
         </div>
       </section>
       <center className='mt-5'>
-        <button className="btn btn-primary rounded-0">Cadastre - se <i className="bi bi-arrow-right-short"></i></button>
+        <button className="btn btn-primary rounded-0"> Analize o seu campo <i className="bi bi-arrow-right-short"></i></button>
       </center>
       {/* <!-- Contact Section --> */}
       <section id="contact" className="contact-section py-4">
@@ -479,52 +483,53 @@ function Home() {
           <h2 className="section-title text-center mt-5 text-agri">Solicite uma Demonstração Gratuita</h2>
           <p className="section-description text-center">Estamos disponíveis para esclarecer suas dúvidas sobre o nosso dispositivo e receber seus feedbacks.</p>
           <div className="row">
-            <div className="col-md-6">    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <input
-          type="text"
-          required
-          className="form-control"
-          placeholder="Seu nome"
-          name="name"
-          onChange={handleInputChange}
-        />
-      </div>
-      <div className="mb-3">
-        <input
-          type="email"
-          required
-          className="form-control"
-          placeholder="Seu e-mail / Telefone"
-          name="email"
-          onChange={handleInputChange}
-        />
-      </div>
-      <div className="mb-3">
-        <textarea
-          className="form-control"
-          required
-          rows="4"
-          placeholder="Sua mensagem"
-          name="message"
-          onChange={handleInputChange}
-        ></textarea>
-      </div>
-      {
-        load == false  ?
-      
-         <button type="submit" className="rounded-0 btn btn-primary">
-        Enviar mensagem <i className="bi bi-send"></i>
-      </button>
+            <div className="col-md-6">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    required
+                    className="form-control"
+                    placeholder="Seu nome"
+                    name="name"
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    required
+                    className="form-control"
+                    placeholder="Seu e-mail / Telefone"
+                    name="email"
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    className="form-control"
+                    required
+                    rows="4"
+                    placeholder="Sua mensagem"
+                    name="message"
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+                {
+                  load == false ?
 
-      :
-      <center>
-      <span className="text-secondary">Enviando{dots}</span>
-    </center>
-    
+                    <button type="submit" className="rounded-0 btn btn-primary">
+                      Enviar mensagem <i className="bi bi-send"></i>
+                    </button>
 
-      }
-    </form>
+                    :
+                    <center>
+                      <span className="text-secondary">Enviando{dots}</span>
+                    </center>
+
+
+                }
+              </form>
             </div>
             <div className="col-md-6">
               <div className="contact-info">
